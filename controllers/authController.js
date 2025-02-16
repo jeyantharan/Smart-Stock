@@ -12,7 +12,7 @@ const upload = multer({ storage });
 
 //Register User - /api/v1/register
 exports.registerUser = catchAsyncError(async (req, res, next) => {
-    const {name, email, password } = req.body
+    const {name, email, password } = req.body    
 
     let avatar;
     
@@ -89,7 +89,7 @@ exports.forgotPassword = catchAsyncError( async (req, res, next)=>{
         return next(new ErrorHandler('User not found with this email', 404))
     }
 
-    const resetToken = user.getResetToken();
+    const resetToken = user.getResetToken()
     await user.save({validateBeforeSave: false})
     
     let BASE_URL = process.env.FRONTEND_URL;

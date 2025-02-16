@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const connectDatabase = ()=>{
-    mongoose.connect("mongodb+srv://Jeyanth:Jeyanth@atlascluster.jootpmm.mongodb.net/SmartStock",{
+    mongoose.connect("mongodb+srv://Jeyanth:Jeyanth@atlascluster.jootpmm.mongodb.net/Smart",{
         useNewUrlParser:true,
         useUnifiedTopology:true
     }).then(con=>{
