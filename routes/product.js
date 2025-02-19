@@ -1,5 +1,5 @@
 const express = require('express');
-const { getProducts, newProduct, getSingleProduct, updateProduct, deleteProduct, createReview, getReviews, deleteReview, getAdminProducts } = require('../controllers/productController');
+const { getProducts, newProduct, getSingleProduct, getProductTag,updateProduct, deleteProduct, createReview, getReviews, deleteReview, getAdminProducts } = require('../controllers/productController');
 const router = express.Router();
 const {isAuthenticatedUser, authorizeRoles } = require('../middlewares/authenticate');
 const multer = require('multer');
@@ -15,6 +15,8 @@ router.route('/product/:id')
             
         
 router.route('/review').put(isAuthenticatedUser, createReview)
+router.route('/:tag').get(isAuthenticatedUser,getProductTag)
+
                       
 
 

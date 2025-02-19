@@ -15,6 +15,10 @@ const userSchema = new mongoose.Schema({
         unique: true,
         validate: [validator.isEmail, 'Please enter valid email address']
     },
+    phoneNumber:{
+        type:String,
+        required: [true, "Please enter phone number"],
+    },
     password: {
         type: String,
         required: [true, 'Please enter password'],
@@ -33,7 +37,27 @@ const userSchema = new mongoose.Schema({
     createdAt :{
         type: Date,
         default: Date.now
+    },
+    addressInfo:[
+     {
+        address: {
+            type: String,
+            required: true
+        },
+        country: {
+            type: String,
+            required: true
+        },
+        city: {
+            type: String,
+            required: true
+        },
+        postalCode: {
+            type: String,
+            required: true
+        }
     }
+    ]
 })
 
 userSchema.pre('save', async function (next){

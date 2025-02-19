@@ -49,9 +49,8 @@ const productSchema = new mongoose.Schema({
             message : "Please select correct category"
         }
     },
-    seller: {
-        type: String,
-        required: [true, "Please enter product seller"]
+    offerPercentage:{
+        type: Number,
     },
     stock: {
         type: Number,
@@ -80,6 +79,9 @@ const productSchema = new mongoose.Schema({
     ],
     user: {
         type : mongoose.Schema.Types.ObjectId
+    },
+    saleTag:{
+        type: [String],
     }
     ,
     createdAt:{

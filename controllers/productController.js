@@ -38,6 +38,7 @@ exports.getProducts = catchAsyncError(async (req, res, next) => {
 //Create Product - /api/v1/product/new
 exports.newProduct = catchAsyncError(async (req, res, next) => {
     let images = [];
+    //let tag = [];
   
     if (req.files.length > 0) {
       try {
@@ -246,3 +247,15 @@ exports.getAdminProducts = catchAsyncError(async (req, res, next) => {
     products,
   });
 });
+
+
+exports.getProductTag = catchAsyncError(async (req, res, next) => {
+    let tag = req.params.tag
+    console.log(tag);
+    
+    const items = await Product.find({ saleTag: { $in: [tag] } });
+    res.status(200).send({
+        success: true,
+        items,
+      });
+  });
