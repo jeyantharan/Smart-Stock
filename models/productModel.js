@@ -82,6 +82,15 @@ const productSchema = new mongoose.Schema({
     },
     saleTag:{
         type: [String],
+        enum: {
+            values: [
+                'Flash Sales',
+                'Top Selling Product',
+                'Trending Product',
+                'Featured Product',
+            ],
+            message: "Please select correct category"
+        }
     }
     ,
     createdAt:{

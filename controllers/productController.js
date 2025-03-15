@@ -11,7 +11,7 @@ const upload = multer({ storage });
 
 //Get Products - /api/v1/products
 exports.getProducts = catchAsyncError(async (req, res, next) => {
-  const resPerPage = 3;
+  const resPerPage = 100;
 
   let buildQuery = () => {
     return new APIFeatures(Product.find(), req.query).search().filter();
